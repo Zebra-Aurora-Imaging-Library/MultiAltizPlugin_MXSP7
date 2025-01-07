@@ -1,0 +1,1076 @@
+{
+  "Data": {
+    "Capture Works Plugins{99}": {
+      "Nodes": {
+        "PluginName": {
+          "Name": "PluginName",
+          "DisplayName": "Matrox Multi AltiZ",
+          "ToolTip": "",
+          "Description": "Grabs from 2 Matrox AltiZ cameras and merges data",
+          "InterfaceType": "Category",
+          "Visibility": "Beginner",
+          "DocuURL": "www.matrox.com/",
+          "AccessMode": "ReadOnly",
+          "Value": null
+        },
+        "MainCamera": {
+          "Name": "MainCamera",
+          "DisplayName": "Main camera",
+          "ToolTip": "Indicates the main camera.",
+          "Description": "Indicates the main camera.",
+          "InterfaceType": "String",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "Value": "Main camera"
+        },
+        "Setup": {
+          "Name": "Setup",
+          "DisplayName": "Setup",
+          "ToolTip": "Set plugin's parameters.",
+          "Description": "Set plugin's parameters.",
+          "InterfaceType": "Category",
+          "Visibility": "Beginner",
+          "DocuURL": "www.matrox.com/",
+          "AccessMode": "ReadOnly",
+          "Value": null
+        },
+        "ColorData": {
+          "Name": "ColorData",
+          "DisplayName": "Individual Color Per Camera",
+          "ToolTip": "Display merged point cloud with multiple colors to highlight the overlap.",
+          "Description": "Display merged point cloud with multiple colors to highlight the overlap.",
+          "InterfaceType": "Enumeration",
+          "Visibility": "Beginner",
+          "DocuURL": "www.matrox.com/",
+          "AccessMode": "ReadWrite",
+          "Value": "False"
+        },
+        "Operation": {
+          "Name": "Operation",
+          "DisplayName" : "Operation",
+          "ToolTip" : "Select to perform or not alignment.",
+          "Description" : "Set whether you want to perform alignment. When feature is set to Alignment, simply press the Single Grab button to perform the grab and alignment. The conveyor can be moved.",
+          "InterfaceType" : "Enumeration",
+          "Visibility" : "Beginner",
+          "DocuURL" : "www.matrox.com/",
+          "AccessMode" : "ReadWrite",
+          "IsDone": true,
+          "Value": "Grab Only"
+        },
+        "INSTRUCTION_MESSAGE": 
+        {
+          "Name": "INSTRUCTION_MESSAGE",
+          "DisplayName": "Instruction and Status",
+          "ToolTip": "Alignment status and instructions.",
+          "Description": "Instructions description.",
+          "InterfaceType": "String",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "Value": "Waiting for instructions..."
+        },
+        "RefreshCameras": {
+          "Name": "RefreshCameras",
+          "DisplayName": "Refresh cameras",
+          "ToolTip": "Detect topology again and save features control with current values. Please make sure all cameras part of the topology are allocated.",
+          "Description": "Detect topology again and save features control with current values. Please make sure all cameras part of the topology are allocated.",
+          "InterfaceType": "Command",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "WriteOnly",
+          "IsDone": true,
+          "Value": null
+        },
+        "AutoDetectTopology": {
+          "Name": "AutoDetectTopology",
+          "DisplayName": "Auto detect camera topology",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "Command",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "WriteOnly",
+          "IsDone": true,
+          "Value": null
+        },
+        "SetupLaserMultiplexing": {
+          "Name": "SetupLaserMultiplexing",
+          "DisplayName": "Laser multiplexing Mode",
+          "ToolTip": "Control laser offset. They are lit at the same time (Off) or offset from the exposure (Neighbour or Custom).",
+          "Description": "Control laser offset. They are lit at the same time (Off) or offset from the exposure (Neighbour or Custom). The custom value is written in Laser delay field under Cameras category.",
+          "InterfaceType": "Enumeration",
+          "Visibility": "Beginner",
+          "DocuURL": "www.matrox.com/",
+          "AccessMode": "ReadWrite",
+          "Value": "Neighbour"
+        },
+        "EnumEntryLaserMultiplexingOff": {
+          "Name": "EnumEntryLaserMultiplexingOff",
+          "DisplayName": "Off",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 1,
+          "IsSelfClearing": false,
+          "Value": "Off"
+        },
+        "EnumEntryLaserMultiplexingNeighbour": {
+          "Name": "EnumEntryLaserMultiplexingNeighbour",
+          "DisplayName": "Neighbour",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 2,
+          "IsSelfClearing": false,
+          "Value": "Neighbour"
+        },
+        "EnumEntryLaserMultiplexingCustom": {
+          "Name": "EnumEntryLaserMultiplexingCustom",
+          "DisplayName": "Custom",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 3,
+          "IsSelfClearing": false,
+          "Value": "Custom"
+        },
+        "SaveCameraSettings": {
+          "Name": "SaveCameraSettings",
+          "DisplayName": "Auto Save Configuration",
+          "ToolTip": "Auto save GenIcam features configuration before grabbing. Note that when it is activated, it slows the plugin just before the grab.",
+          "Description": "Auto save GenICam features configuration before grabbing. Note that when it is activated, it slows the plugin just before the grab.",
+          "InterfaceType": "Enumeration",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadWrite",
+          "IsDone": true,
+          "Value": "True"
+        },
+        "SaveCameraSettingsTrue": {
+          "Name": "SaveCameraSettingsTrue",
+          "DisplayName": "True",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 111,
+          "IsSelfClearing": false,
+          "Value": "True"
+        },
+        "SaveCameraSettingsFalse": {
+          "Name": "SaveCameraSettingsFalse",
+          "DisplayName": "False",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": -666,
+          "IsSelfClearing": false,
+          "Value": "False"
+        },
+        "ViewMode": {
+          "Name": "ViewMode",
+          "DisplayName": "View Mode",
+          "ToolTip": "Select to display the merge point cloud only or all point cloud.",
+          "Description": "Ask if user wants to add views to display grabbed data by single AltiZ.",
+          "InterfaceType": "Enumeration",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadWrite",
+          "IsDone": true,
+          "Value": "AllCameras"
+        },   
+        "EnumEntryAllCameras": 
+        {
+          "Name": "EnumEntryAllCameras",
+          "DisplayName": "All cameras",
+          "ToolTip": "Choose to display all cameras point cloud.",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 1,
+          "IsSelfClearing": false,
+          "Value": "AllCameras"
+        },
+        "EnumEntryMergeOnly": {
+          "Name": "EnumEntryMergeOnly",
+          "DisplayName": "Merge Only",
+          "ToolTip": "Displays only the merge point cloud.",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 0,
+          "IsSelfClearing": false,
+          "Value": "MergeOnly"
+        },     
+        "SecondaryCameras": {
+          "Name": "SecondaryCameras",
+          "DisplayName": "Cameras",
+          "ToolTip": "Select the camera to display settings for.",
+          "Description": "Select the camera to display settings for.",
+          "InterfaceType": "Enumeration",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadWrite",
+          "IntValue": 1,
+          "Value": "",
+          "SymbolicValue": "EnumEntrySecondaryCamera_1"
+        },
+        "EnumEntrySecondaryCamera_1": {
+          "Name": "EnumEntrySecondaryCamera_1",
+          "DisplayName": "1",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 1,
+          "IsSelfClearing": false,
+          "Value": "1"
+        },
+        "EnumEntrySecondaryCamera_2": {
+          "Name": "EnumEntrySecondaryCamera_2",
+          "DisplayName": "2",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 2,
+          "IsSelfClearing": false,
+          "Value": "2"
+        },
+        "EnumEntrySecondaryCamera_3": {
+          "Name": "EnumEntrySecondaryCamera_3",
+          "DisplayName": "3",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 3,
+          "IsSelfClearing": false,
+          "Value": "3"
+        },
+        "EnumEntrySecondaryCamera_4": {
+          "Name": "EnumEntrySecondaryCamera_4",
+          "DisplayName": "4",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 4,
+          "IsSelfClearing": false,
+          "Value": "4"
+        },
+        "EnumEntrySecondaryCamera_5": {
+          "Name": "EnumEntrySecondaryCamera_5",
+          "DisplayName": "5",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 5,
+          "IsSelfClearing": false,
+          "Value": "5"
+        },
+        "EnumEntrySecondaryCamera_6": {
+          "Name": "EnumEntrySecondaryCamera_6",
+          "DisplayName": "6",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 6,
+          "IsSelfClearing": false,
+          "Value": "6"
+        },
+        "EnumEntrySecondaryCamera_7": {
+          "Name": "EnumEntrySecondaryCamera_7",
+          "DisplayName": "7",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 7,
+          "IsSelfClearing": false,
+          "Value": "7"
+        },        
+        "EnumEntrySecondaryCamera_8": {
+          "Name": "EnumEntrySecondaryCamera_8",
+          "DisplayName": "8",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 8,
+          "IsSelfClearing": false,
+          "Value": "8"
+        },        
+        "EnumEntrySecondaryCamera_9": {
+          "Name": "EnumEntrySecondaryCamera_9",
+          "DisplayName": "9",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 9,
+          "IsSelfClearing": false,
+          "Value": "9"
+        },        
+        "EnumEntrySecondaryCamera_10": {
+          "Name": "EnumEntrySecondaryCamera_10",
+          "DisplayName": "10",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 10,
+          "IsSelfClearing": false,
+          "Value": "10"
+        },        
+        "EnumEntrySecondaryCamera_11": {
+          "Name": "EnumEntrySecondaryCamera_11",
+          "DisplayName": "11",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 11,
+          "IsSelfClearing": false,
+          "Value": "11"
+        },        
+        "EnumEntrySecondaryCamera_12": {
+          "Name": "EnumEntrySecondaryCamera_12",
+          "DisplayName": "12",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 12,
+          "IsSelfClearing": false,
+          "Value": "12"
+        },        
+        "EnumEntrySecondaryCamera_13": {
+          "Name": "EnumEntrySecondaryCamera_13",
+          "DisplayName": "13",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 13,
+          "IsSelfClearing": false,
+          "Value": "13"
+        },        
+        "EnumEntrySecondaryCamera_14": {
+          "Name": "EnumEntrySecondaryCamera_14",
+          "DisplayName": "14",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 14,
+          "IsSelfClearing": false,
+          "Value": "14"
+        },        
+        "EnumEntrySecondaryCamera_15": {
+          "Name": "EnumEntrySecondaryCamera_15",
+          "DisplayName": "15",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 15,
+          "IsSelfClearing": false,
+          "Value": "15"
+        },        
+        "EnumEntrySecondaryCamera_16": {
+          "Name": "EnumEntrySecondaryCamera_16",
+          "DisplayName": "16",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 16,
+          "IsSelfClearing": false,
+          "Value": "16"
+        },        
+        "EnumEntrySecondaryCamera_17": {
+          "Name": "EnumEntrySecondaryCamera_17",
+          "DisplayName": "17",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 17,
+          "IsSelfClearing": false,
+          "Value": "17"
+        },        
+        "EnumEntrySecondaryCamera_18": {
+          "Name": "EnumEntrySecondaryCamera_18",
+          "DisplayName": "18",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 18,
+          "IsSelfClearing": false,
+          "Value": "18"
+        },        
+        "EnumEntrySecondaryCamera_19": {
+          "Name": "EnumEntrySecondaryCamera_19",
+          "DisplayName": "19",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 19,
+          "IsSelfClearing": false,
+          "Value": "19"
+        },        
+        "EnumEntrySecondaryCamera_20": {
+          "Name": "EnumEntrySecondaryCamera_20",
+          "DisplayName": "20",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 20,
+          "IsSelfClearing": false,
+          "Value": "20"
+        },        
+        "EnumEntrySecondaryCamera_21": {
+          "Name": "EnumEntrySecondaryCamera_21",
+          "DisplayName": "21",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 21,
+          "IsSelfClearing": false,
+          "Value": "21"
+        },        
+        "EnumEntrySecondaryCamera_22": {
+          "Name": "EnumEntrySecondaryCamera_22",
+          "DisplayName": "22",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 22,
+          "IsSelfClearing": false,
+          "Value": "22"
+        },        
+        "EnumEntrySecondaryCamera_23": {
+          "Name": "EnumEntrySecondaryCamera_23",
+          "DisplayName": "23",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 23,
+          "IsSelfClearing": false,
+          "Value": "23"
+        },        
+        "EnumEntrySecondaryCamera_24": {
+          "Name": "EnumEntrySecondaryCamera_24",
+          "DisplayName": "24",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 24,
+          "IsSelfClearing": false,
+          "Value": "24"
+        },        
+        "EnumEntrySecondaryCamera_25": {
+          "Name": "EnumEntrySecondaryCamera_25",
+          "DisplayName": "25",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 25,
+          "IsSelfClearing": false,
+          "Value": "25"
+        },        
+        "EnumEntrySecondaryCamera_26": {
+          "Name": "EnumEntrySecondaryCamera_26",
+          "DisplayName": "26",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 26,
+          "IsSelfClearing": false,
+          "Value": "26"
+        },        
+        "EnumEntrySecondaryCamera_27": {
+          "Name": "EnumEntrySecondaryCamera_27",
+          "DisplayName": "27",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 27,
+          "IsSelfClearing": false,
+          "Value": "27"
+        },        
+        "EnumEntrySecondaryCamera_28": {
+          "Name": "EnumEntrySecondaryCamera_28",
+          "DisplayName": "28",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 28,
+          "IsSelfClearing": false,
+          "Value": "28"
+        },        
+        "EnumEntrySecondaryCamera_29": {
+          "Name": "EnumEntrySecondaryCamera_29",
+          "DisplayName": "29",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 29,
+          "IsSelfClearing": false,
+          "Value": "29"
+        },        
+        "EnumEntrySecondaryCamera_30": {
+          "Name": "EnumEntrySecondaryCamera_30",
+          "DisplayName": "30",
+          "ToolTip": "",
+          "Description": "",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "NotAvailable",
+          "IntValue": 30,
+          "IsSelfClearing": false,
+          "Value": "30"
+        },
+        "CameraTopologyIndex": {
+          "Name": "CameraTopologyIndex",
+          "DisplayName": "Topology index",
+          "ToolTip": "Indicates position of the selected camera in the topology.",
+          "Description": "Indicates position of the selected camera in the topology.",
+          "InterfaceType": "Integer",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "AccessMode": "ReadOnly",
+          "Increment": 1,
+          "Max": 100,
+          "Min": 1,
+          "IncrementMode": "Fixed",
+          "Representation": "PureNumber",
+          "Value": 0
+        },
+        "CameraStatus": {
+          "Name": "CameraStatus",
+          "DisplayName": "Status",
+          "ToolTip": "Indicates whether the selected camera is the main camera.",
+          "Description": "Indicates whether the selected camera is the main camera.",
+          "InterfaceType": "String",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "AccessMode": "ReadOnly",
+          "Value": "unknown"
+        },
+        "ExposureDelay": {
+          "Name": "ExposureDelay",
+          "DisplayName": "Laser delay",
+          "ToolTip": "Delay between the exposure of the main camera and the exposure of this camera. Applies only when Laser Multiplexing Mode is set to Custom. The value can only be set on secondaries.",
+          "Description": "Delay between the exposure of the main camera and the exposure of this camera. Applies only when Laser Multiplexing Mode is set to Custom. The value can only be set on secondaries.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "AccessMode": "ReadWrite",
+          "Value": 0.0,
+          "Unit": "us"
+        },
+        "TranslationX": {
+          "Name": "TranslationX",
+          "DisplayName": "Translation X",
+          "ToolTip": "Transformation values for the alignment.",
+          "Description": "Transformation values for the alignment.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.0,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.0,
+          "Min": -10000.0,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "mm"
+        },
+        "TranslationY": {
+          "Name": "TranslationY",
+          "DisplayName": "Translation Y",
+          "ToolTip": "Transformation values for the alignment.",
+          "Description": "Transformation values for the alignment.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.0,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.0,
+          "Min": -10000.0,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "mm"
+        },
+        "TranslationZ": {
+          "Name": "TranslationZ",
+          "DisplayName": "Translation Z",
+          "ToolTip": "Transformation values for the alignment.",
+          "Description": "Transformation values for the alignment.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.0,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.0,
+          "Min": -10000.0,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "mm"
+        },
+        "RotationX": {
+          "Name": "RotationX",
+          "DisplayName": "Rotation X",
+          "ToolTip": "Transformation values for the alignment.",
+          "Description": "Transformation values for the alignment.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.0,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.0,
+          "Min": -10000.0,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "deg"
+        },
+        "RotationY": {
+          "Name": "RotationY",
+          "DisplayName": "Rotation Y",
+          "ToolTip": "Transformation values for the alignment.",
+          "Description": "Transformation values for the alignment.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.0,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.0,
+          "Min": -10000.0,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "deg"
+        },
+        "RotationZ": {
+          "Name": "RotationZ",
+          "DisplayName": "Rotation Z",
+          "ToolTip": "Transformation values for the alignment.",
+          "Description": "Transformation values for the alignment.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.0,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.0,
+          "Min": -10000.0,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "deg"
+        },
+        "Distance": {
+          "Name": "Distance",
+          "DisplayName": "Spacing Center to Center",
+          "ToolTip": "Spacing between the centers of circles.",
+          "Description": "Spacing between the centers of circles along calibration bar axis. The sign is given by X-axis direction of the the main camera relative to secondaries origin. Set value in mm.",
+          "InterfaceType": "Float",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "IsStreamable": false,
+          "Value": 0.00,
+          "AccessMode": "ReadWrite",
+          "Max": 10000.00,
+          "Min": -10000.00,
+          "DisplayNotation": "Automatic",
+          "DisplayPrecision": 3,
+          "Representation": "PureNumber",
+          "IncrementMode": "None",
+          "Unit": "mm"
+        },
+        "EnumEntry_FALSE": 
+        {
+          "Name": "EnumEntry_FALSE",
+          "DisplayName": "Grab Only",
+          "ToolTip": "Automatic alignment disabled.",
+          "Description": "Boolean to ask if alignment should be perform or not.",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 268435456,
+          "IsSelfClearing": false,
+          "Value": "Grab Only"
+        },
+        "EnumEntry_TRUE": 
+        {
+          "Name": "EnumEntry_TRUE",
+          "DisplayName": "Alignment",
+          "ToolTip": "Automatic alignment enabled.",
+          "Description": "Boolean to ask if alignment should be perform or not.",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": -9999,
+          "IsSelfClearing": false,
+          "Value": "True"
+        },
+        "EnumEntryColorDataTrue": 
+        {
+          "Name": "EnumEntryColorDataTrue",
+          "DisplayName": "True",
+          "ToolTip": "Display merge data with various color for each point cloud use.",
+          "Description": "Display merge data with various color for each point cloud use.",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 1,
+          "IsSelfClearing": false,
+          "Value": "True"
+        },
+        "EnumEntryColorDataFalse": 
+        {
+          "Name": "EnumEntryColorDataFalse",
+          "DisplayName": "False",
+          "ToolTip": "Display merge data without changing reflectance for each point cloud use.",
+          "Description": "Display merge data without changing reflectance for each point cloud use.",
+          "InterfaceType": "EnumEntry",
+          "Visibility": "Beginner",
+          "DocuURL": "",
+          "AccessMode": "ReadOnly",
+          "IntValue": 0,
+          "IsSelfClearing": false,
+          "Value": "False"
+        }
+      }
+    }
+  },
+  "Schema": [
+    {
+      "Name": "Capture Works Plugins{99}",
+      "Children": [
+        {
+          "Name": "MainCamera"
+        },
+        {
+          "Name": "Setup",
+          "Children": [
+            {
+              "Name": "SaveCameraSettings",
+              "ValidValuesList" : [
+                {
+                  "Name": "SaveCameraSettingsTrue" ,
+                  "DisplayName" : "True"                 
+                },
+                {
+                  "Name": "SaveCameraSettingsFalse",
+                  "DisplayName" : "False"                 
+                }
+              ]
+            },
+            {
+              "Name": "ViewMode",
+              "ValidValuesList": [
+                {
+                  "Name": "EnumEntryAllCameras"
+                  
+                },
+                {
+                  "Name": "EnumEntryMergeOnly"
+                  
+                }
+              ]
+            },
+            {
+              "Name": "ColorData",
+              "ValidValuesList": [
+                {
+                  "Name": "EnumEntryColorDataTrue",
+                  "DisplayName" : "True"
+                },
+                {
+                  "Name": "EnumEntryColorDataFalse",
+                  "DisplayName" : "False"
+                }
+              ]
+            },
+            {
+              "Name": "RefreshCameras"
+            },
+            {
+              "Name": "SetupLaserMultiplexing",
+              "ValidValuesList": [
+                {
+                  "Name": "EnumEntryLaserMultiplexingOff"
+                },
+                {
+                  "Name": "EnumEntryLaserMultiplexingNeighbour"
+                },
+                {
+                  "Name": "EnumEntryLaserMultiplexingCustom"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "Name": "Operation",
+          "ValidValuesList" : [
+            {
+              "Name": "EnumEntry_FALSE",
+              "DisplayName" : "False"
+            },
+            {
+              "Name": "EnumEntry_TRUE",
+              "DisplayName" : "True"
+            }
+          ]
+        },
+        {
+          "Name": "INSTRUCTION_MESSAGE"
+          
+        },
+        {
+          "Name": "Distance"
+        },
+        {
+          "Name": "SecondaryCameras",
+          "ValidValuesList": [
+            {
+              "Name": "EnumEntrySecondaryCamera_1"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_2"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_3"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_4"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_5"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_6"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_7"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_8"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_9"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_10"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_11"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_12"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_13"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_14"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_15"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_16"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_17"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_18"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_19"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_20"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_21"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_22"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_23"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_24"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_25"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_26"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_27"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_28"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_29"
+            },
+            {
+              "Name": "EnumEntrySecondaryCamera_30"
+            }
+          ],
+          "Children": [
+            {
+              "Name": "CameraTopologyIndex"
+            },
+            {
+              "Name": "CameraStatus"
+            },
+            {
+              "Name": "ExposureDelay"
+            },
+            {
+              "Name": "TranslationX"
+            },
+            {
+              "Name": "TranslationY"
+            },
+            {
+              "Name": "TranslationZ"
+            },
+            {
+              "Name": "RotationX"
+            },
+            {
+              "Name": "RotationY"
+            },
+            {
+              "Name": "RotationZ"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
